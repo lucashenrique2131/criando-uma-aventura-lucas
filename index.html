@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando a Cidade Perdida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="exploracao-container">
+        <div class="fase" id="fase-1">
+            <h1>Bem-vindo à Cidade Perdida!</h1>
+            <p>Você está prestes a começar sua jornada. O que deseja fazer?</p>
+            <button onclick="proximaFase(2)">Ir para a floresta</button>
+        </div>
+
+        <div class="fase" id="fase-2">
+            <h1>A Floresta Misteriosa</h1>
+            <p>Você chegou à entrada da floresta. Para onde quer ir?</p>
+            <button onclick="proximaFase(3)">Entrar na floresta</button>
+            <button onclick="proximaFase(1)">Voltar para a entrada</button>
+        </div>
+
+        <div class="fase" id="fase-3">
+            <h1>O Templo Antigo</h1>
+            <p>Você encontrou o templo! O que você fará?</p>
+            <button onclick="proximaFase(4)">Explorar o templo</button>
+            <button onclick="proximaFase(2)">Voltar para a floresta</button>
+        </div>
+
+        <div class="fase" id="fase-4">
+            <h1>O Tesouro</h1>
+            <p>Você encontrou o tesouro da cidade perdida! Parabéns!</p>
+            <button onclick="proximaFase(1)">Iniciar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
