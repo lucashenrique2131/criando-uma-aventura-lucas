@@ -5,7 +5,7 @@
 /* ---------------------------------- */
 
 body {
-    /* Define a fonte de acordo com os links no seu HTML (precisa do link externo no <head>) */
+    /* Você precisará garantir que a fonte 'Bai Jamjuree' esteja linkada no HTML ou remova o código */
     font-family: 'Bai Jamjuree', sans-serif;
     margin: 0;
     padding: 20px;
@@ -15,7 +15,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* Adicionado para garantir que o <h1> seja estilizado corretamente */
 }
 
 main {
@@ -101,4 +100,15 @@ main h1 {
     transform: translateY(-2px); /* Efeito sutil de elevação */
 }
 
-/* Melhoria: remove a margem do último botão para melhor espa
+/* Melhoria: remove a margem do último botão para melhor espaçamento no final do passo */
+.passo .btn-proximo:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------- */
+/* 4. ESTILOS DE IMAGENS */
+/* ---------------------------------- */
+
+.passo img {
+    max-width: 100%;
+    height:
