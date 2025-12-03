@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     botoesProximo.forEach(botao => {
         botao.addEventListener('click', (event) => {
             // Obtém o ID do próximo passo a partir do atributo 'data-proximo'
-            const proximoPassoId = event.target.getAttribute('data-proximo');
+            // O target.dataset.proximo é uma forma mais limpa de ler data-attributes
+            const proximoPassoId = event.target.dataset.proximo;
             
             // Chama a função para mudar o cenário
             mudarPasso(proximoPassoId);
@@ -26,22 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
         // Encontra o passo (div) que está ativo atualmente
         const passoAtual = document.querySelector('.passo.ativo');
         
-        // Constrói o ID do novo passo (ex: 'passo-3')
+        // Constrói o ID do novo passo (ex: 'passo-3') e o busca no DOM
         const novoPassoElemento = document.getElementById(`passo-${proximoId}`);
 
-        // Verifica se o passo atual existe e o desativa
+        // 3. Lógica de Transição
+        
+        // Desativa o passo atual
         if (passoAtual) {
             passoAtual.classList.remove('ativo');
         }
 
-        // Verifica se o novo passo existe e o ativa
+        // Ativa o novo passo
         if (novoPassoElemento) {
             novoPassoElemento.classList.add('ativo');
+            // Opcional: Rolagem suave para o topo do novo passo
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         } else {
-            console.error(`Erro: Não foi possível encontrar o passo com o ID: passo-${proximoId}`);
+            console.error(`Erro de Navegação: Não foi possível encontrar o passo com o ID: passo-${proximoId}. Verifique os atributos data-proximo no HTML.`);
         }
     }
 });
-
-// Nota: Você precisará garantir que seu arquivo CSS ('style.css')
-// oculte todos os passos por padrão e apenas mostre aquele com a classe 'ativo'.
