@@ -5,11 +5,10 @@
 /* ---------------------------------- */
 
 body {
-    /* Define a fonte. Se não tiver a fonte 'Bai Jamjuree' linkada, use uma fallback */
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #0d1117; /* Fundo escuro como um painel de carro */
+    background-color: #0d1117; /* Fundo escuro */
     color: #c9d1d9; /* Cor do texto claro */
     display: flex;
     justify-content: center;
@@ -29,14 +28,13 @@ main {
 }
 
 main h1 {
-    /* Estilo para o título do jogo */
-    color: #f0b34d; /* Cor do troféu/ouro */
+    color: #f0b34d;
     font-size: 2em;
     margin-top: 0;
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: 2px solid #4a90e2; /* Linha sutil para separar o título */
+    border-bottom: 2px solid #4a90e2;
     padding-bottom: 10px;
 }
 
@@ -47,11 +45,11 @@ main h1 {
 .passo {
     /* Oculta todos os passos por padrão */
     display: none;
-    animation: fadeIn 0.8s ease-out; /* Adiciona uma animação suave */
+    animation: fadeIn 0.8s ease-out; 
 }
 
 .passo.ativo {
-    /* O CSS mais importante: Exibe apenas o passo com a classe 'ativo' */
+    /* Exibe apenas o passo com a classe 'ativo' */
     display: block;
 }
 
@@ -67,28 +65,26 @@ main h1 {
 }
 
 /* ---------------------------------- */
-/* 3. ESTILOS DO CONTEÚDO E BOTÕES DE ESCOLHA */
+/* 3. ESTILOS DO CONTEÚDO E BOTÕES */
 /* ---------------------------------- */
 
 .passo p {
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 30px;
-    /* Detalhe visual que simula um highlight ou uma borda de painel */
     border-left: 4px solid #4a90e2; 
     padding-left: 15px;
     text-align: left;
 }
 
 .btn-proximo {
-    /* Estilo dos botões como se fossem opções no painel */
     display: block;
     width: 100%;
     padding: 15px 20px;
     margin-bottom: 10px;
     border: none;
     border-radius: 8px;
-    background-color: #4a90e2; /* Azul chamativo para as escolhas */
+    background-color: #4a90e2; 
     color: #fff;
     font-size: 1em;
     font-weight: 600;
@@ -97,11 +93,10 @@ main h1 {
 }
 
 .btn-proximo:hover {
-    background-color: #3b74c4; /* Azul mais escuro no hover */
-    transform: translateY(-2px); /* Efeito sutil de elevação */
+    background-color: #3b74c4;
+    transform: translateY(-2px);
 }
 
-/* Remove a margem inferior do último botão em um passo */
 .passo .btn-proximo:last-child {
     margin-bottom: 0;
 }
