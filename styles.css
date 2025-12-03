@@ -1,6 +1,36 @@
 /* style.css */
 
 /* ---------------------------------- */
+/* 1. CONFIGURAÇÃO BASE E FONTES */
+/* ---------------------------------- */
+
+:root {
+    --color-primary: #FF5722; /* Laranja Rally / Destaque */
+    --color-secondary: #00BCD4; /* Ciano para contraste / Alerta */
+    --color-background: #0D1117; /* Fundo Escuro */
+    --color-card: #161B22; /* Cartão de Passo */
+    --color-text: #E4E6EB;
+    --color-error: #F44336;
+    --color-success: #4CAF50;
+    --shadow-light: 0 0 15px rgba(255, 87, 34, 0.5);
+    --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.4);
+    --border-radius: 10px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinhamos ao topo para telas maiores */
+    padding: 20px;
+}/* style.css */
+
+/* ---------------------------------- */
 /* 1. ESTILOS GERAIS E LAYOUT DA PÁGINA */
 /* ---------------------------------- */
 
@@ -62,53 +92,162 @@ main h1 {
         opacity: 1;
         transform: translateY(0);
     }
-}
 
-/* ---------------------------------- */
-/* 3. ESTILOS DO CONTEÚDO E BOTÕES */
-/* ---------------------------------- */
 
-.passo p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    border-left: 4px solid #4a90e2; 
-    padding-left: 15px;
-    text-align: left;
-}
-
-.btn-proximo {
-    display: block;
+main {
+    max-width: 800px;
     width: 100%;
-    padding: 15px 20px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4a90e2; 
-    color: #fff;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-.btn-proximo:hover {
-    background-color: #3b74c4;
-    transform: translateY(-2px);
-}
-
-.passo .btn-proximo:last-child {
-    margin-bottom: 0;
+    background-color: var(--color-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-dark);
+    padding: 30px;
 }
 
 /* ---------------------------------- */
-/* 4. ESTILOS DE IMAGENS */
+/* 2. LAYOUT DO CABEÇALHO */
+/* ---------------------------------- */
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 15px;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--color-secondary);
+    font-size: 1em;
+    font-weight: 700;
+}
+
+/* ---------------------------------- */
+/* 3. LÓGICA DE TRANSIÇÃO ENTRE PASSOS (O MAIS FODA) */
+/* ---------------------------------- */
+
+#game-container {
+    position: relative;
+    overflow: hidden; /* Importante para esconder os passos inativos */
+    min-height: 500px; /* Garante que o container não encolha */
+}
+
+.passo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none; /* Desativa interação quando invisível */
+    transform: translateX(100%); /* Coloca a tela fora de vista à direita */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    padding-bottom: 20px;
+}
+
+.passo.ativo {
+    opacity: 1;
+    pointer-events: all; /* Ativa interação */
+    transform: translateX(0); /* Desliza a tela para a posição central */
+    position: relative; /* Volta para o fluxo normal para evitar bugs de layout */
+}
+
+/* ---------------------------------- */
+/* 4. ESTILOS DE CONTEÚDO E IMAGENS */
 /* ---------------------------------- */
 
 .passo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #3b424a;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    border: 3px solid var(--color-secondary);
+}
+
+.content-box {
+    margin-top: 15px;
+}
+
+.description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #21262d; /* Fundo sutil para o texto */
+    border-left: 4px solid var(--color-primary);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.description.game-over {
+    border-left-color: var(--color-error);
+    font-weight: bold;
+    color: var(--color-error);
+}
+
+.description.victory {
+    border-left-color: var(--color-success);
+    font-weight: bold;
+    color: var(--color-success);
+}
+
+/* ---------------------------------- */
+/* 5. ESTILOS DE BOTÕES E OPÇÕES */
+/* ---------------------------------- */
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.btn-proximo {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-proximo.primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.btn-proximo.primary:hover {
+    background-color: #e04e1c;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.btn-proximo.secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+}
+
+.btn-proximo.secondary:hover {
+    background-color: #00a4b8;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+}
+
+.btn-proximo.full-width {
+    grid-column: 1 / -1; /* Ocupa a largura total da grid */
+}
+
+/* Ajuste para telas maiores, para que os botões fiquem lado a lado */
+@media (min-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
