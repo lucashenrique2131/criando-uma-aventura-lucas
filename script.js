@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     botoesProximo.forEach(botao => {
         botao.addEventListener('click', (event) => {
             // Obtém o ID do próximo passo a partir do atributo 'data-proximo'
-            // O target.dataset.proximo é uma forma mais limpa de ler data-attributes
             const proximoPassoId = event.target.dataset.proximo;
             
             // Chama a função para mudar o cenário
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ativa o novo passo
         if (novoPassoElemento) {
             novoPassoElemento.classList.add('ativo');
-            // Opcional: Rolagem suave para o topo do novo passo
+            // Opcional: Rolagem suave para o topo do novo passo (melhora UX)
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
