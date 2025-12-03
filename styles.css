@@ -5,7 +5,7 @@
 /* ---------------------------------- */
 
 body {
-    /* Define a fonte de acordo com os links no seu HTML */
+    /* Define a fonte de acordo com os links no seu HTML (precisa do link externo no <head>) */
     font-family: 'Bai Jamjuree', sans-serif;
     margin: 0;
     padding: 20px;
@@ -15,6 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    /* Adicionado para garantir que o <h1> seja estilizado corretamente */
 }
 
 main {
@@ -26,6 +27,18 @@ main {
     max-width: 600px;
     width: 100%;
     text-align: center;
+}
+
+main h1 {
+    /* Estilo para o título do jogo */
+    color: #f0b34d; /* Cor do troféu/ouro */
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #4a90e2; /* Linha sutil para separar o título */
+    padding-bottom: 10px;
 }
 
 /* ---------------------------------- */
@@ -88,14 +101,4 @@ main {
     transform: translateY(-2px); /* Efeito sutil de elevação */
 }
 
-/* ---------------------------------- */
-/* 4. ESTILOS DE IMAGENS (Se você as usar) */
-/* ---------------------------------- */
-
-.passo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #3b424a;
-}
+/* Melhoria: remove a margem do último botão para melhor espa
