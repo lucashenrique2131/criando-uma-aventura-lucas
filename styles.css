@@ -1,49 +1,101 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* style.css */
+
+/* ---------------------------------- */
+/* 1. ESTILOS GERAIS E FONTES */
+/* ---------------------------------- */
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
+    /* Define a fonte de acordo com os links no seu HTML */
+    font-family: 'Bai Jamjuree', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #0d1117; /* Fundo escuro como um painel de carro */
+    color: #c9d1d9; /* Cor do texto claro */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+}
+
+main {
+    background-color: #161b22; /* Fundo da área de jogo */
+    border: 3px solid #f0b34d; /* Borda cor de troféu/ouro */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(240, 179, 77, 0.3);
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
     text-align: center;
 }
 
-#exploracao-container {
-    width: 80%;
-    max-width: 700px;
-    margin: 20px;
+/* ---------------------------------- */
+/* 2. ESTILOS DE VISUALIZAÇÃO DOS PASSOS */
+/* ---------------------------------- */
+
+.passo {
+    /* Oculta todos os passos por padrão */
+    display: none;
+    animation: fadeIn 0.8s ease-out; /* Adiciona uma animação suave */
 }
 
-.fase {
-    display: none; /* Todas as fases começam escondidas */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.fase.ativa {
+.passo.ativo {
+    /* O CSS mais importante: Exibe apenas o passo com a classe 'ativo' */
     display: block;
-    opacity: 1;
 }
 
-button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 16px;
-    cursor: pointer;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------- */
+/* 3. ESTILOS DO CONTEÚDO E BOTÕES */
+/* ---------------------------------- */
+
+.passo p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    border-left: 4px solid #4a90e2; /* Detalhe em azul para contraste */
+    padding-left: 15px;
+    text-align: left;
+}
+
+.btn-proximo {
+    /* Estilo dos botões como se fossem opções no painel */
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 10px;
     border: none;
-    background-color: #008CBA;
-    color: white;
-    border-radius: 5px;
+    border-radius: 8px;
+    background-color: #4a90e2; /* Azul chamativo */
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
 }
 
-button:hover {
-    background-color: #005f73;
+.btn-proximo:hover {
+    background-color: #3b74c4; /* Azul mais escuro no hover */
+    transform: translateY(-2px); /* Efeito sutil de elevação */
+}
+
+/* ---------------------------------- */
+/* 4. ESTILOS DE IMAGENS (Se você as usar) */
+/* ---------------------------------- */
+
+.passo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #3b424a;
 }
