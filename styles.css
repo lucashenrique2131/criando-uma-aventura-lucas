@@ -1,12 +1,12 @@
 /* style.css */
 
 /* ---------------------------------- */
-/* 1. ESTILOS GERAIS E FONTES */
+/* 1. ESTILOS GERAIS E LAYOUT DA PÁGINA */
 /* ---------------------------------- */
 
 body {
-    /* Você precisará garantir que a fonte 'Bai Jamjuree' esteja linkada no HTML ou remova o código */
-    font-family: 'Bai Jamjuree', sans-serif;
+    /* Define a fonte. Se não tiver a fonte 'Bai Jamjuree' linkada, use uma fallback */
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #0d1117; /* Fundo escuro como um painel de carro */
@@ -41,7 +41,7 @@ main h1 {
 }
 
 /* ---------------------------------- */
-/* 2. ESTILOS DE VISUALIZAÇÃO DOS PASSOS */
+/* 2. LÓGICA DE EXIBIÇÃO DE PASSOS (CRUCIAL) */
 /* ---------------------------------- */
 
 .passo {
@@ -67,14 +67,15 @@ main h1 {
 }
 
 /* ---------------------------------- */
-/* 3. ESTILOS DO CONTEÚDO E BOTÕES */
+/* 3. ESTILOS DO CONTEÚDO E BOTÕES DE ESCOLHA */
 /* ---------------------------------- */
 
 .passo p {
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 30px;
-    border-left: 4px solid #4a90e2; /* Detalhe em azul para contraste */
+    /* Detalhe visual que simula um highlight ou uma borda de painel */
+    border-left: 4px solid #4a90e2; 
     padding-left: 15px;
     text-align: left;
 }
@@ -87,7 +88,7 @@ main h1 {
     margin-bottom: 10px;
     border: none;
     border-radius: 8px;
-    background-color: #4a90e2; /* Azul chamativo */
+    background-color: #4a90e2; /* Azul chamativo para as escolhas */
     color: #fff;
     font-size: 1em;
     font-weight: 600;
@@ -100,7 +101,7 @@ main h1 {
     transform: translateY(-2px); /* Efeito sutil de elevação */
 }
 
-/* Melhoria: remove a margem do último botão para melhor espaçamento no final do passo */
+/* Remove a margem inferior do último botão em um passo */
 .passo .btn-proximo:last-child {
     margin-bottom: 0;
 }
@@ -111,4 +112,8 @@ main h1 {
 
 .passo img {
     max-width: 100%;
-    height:
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #3b424a;
+}
